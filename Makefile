@@ -7,7 +7,7 @@ all:
 		tag=$$(dirname $$f | sed 's|^\./||; s|/|-|g'); \
 		if [ -z "$$(docker images -q $(REPO_NAME):$$tag)" ]; then \
 			echo "Building image $(REPO_NAME):$$tag from $$f"; \
-			docker build -t my:$(REPO_NAME):tag -f $$f $$(dirname $$f); \
+			docker build -t $(REPO_NAME):tag -f $$f $$(dirname $$f); \
 		else \
 			echo "Image $(REPO_NAME):$$tag already exists. Skipping build."; \
 		fi; \
